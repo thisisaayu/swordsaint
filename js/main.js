@@ -77,13 +77,14 @@ function put(x,y,z,t,rnd,bo){
   col[i]=t*L+Math.min(L-1,(b*L)|0);
 }
 
-let yaw=.6,tx=.5,ty=.5,px=.5,py=.5,boost=1,drag=false,last=0;
+let yaw=.6,tx=.5,ty=.5,px=.5,py=.5,boost=1,drag=false,last=0,lastDraw=0;
 function draw(dt){
   px+=(tx-px)*.06;py+=(ty-py)*.06;
   const a=yaw+(px-.5)*.5,p=.2+(py-.5)*.3;
   cyaw=Math.cos(a);syaw=Math.sin(a);cp=Math.cos(p);sp=Math.sin(p);
   zb.fill(1e9);
-  for(let i=0;i<P.length;i+=5)put(P[i],P[i+1],P[i+2],P[i+3],P[i+4]);
+  const pointStep=W<640?10:5;
+  for(let i=0;i<P.length;i+=pointStep)put(P[i],P[i+1],P[i+2],P[i+3],P[i+4]);
   swords.forEach(s=>{
     s.a+=dt*s.v*boost;
     const sg=Math.sign(s.v),T=s.tilt,cT=Math.cos(T),sT=Math.sin(T);
@@ -109,7 +110,9 @@ function draw(dt){
   }
 }
 function loop(now){
+  if(W<640&&now-lastDraw<33){requestAnimationFrame(loop);return}
   const dt=Math.min((now-last)/1000,.05);last=now;
+  lastDraw=now;
   boost+=(1-boost)*Math.min(1,dt*1.4);
   yaw+=dt*.16;
   draw(dt);requestAnimationFrame(loop);
@@ -134,5 +137,6 @@ addEventListener('pointermove',e=>{
   });
 });
 
-(document.fonts&&document.fonts.load?document.fonts.load('12px "JetBrains Mono"'):Promise.resolve()).catch(()=>{}).then(start);
+start();
+if(document.fonts)document.fonts.ready.then(()=>{resize();if(reduce)draw(0)});
 })();
