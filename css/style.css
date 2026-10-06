@@ -56,13 +56,16 @@ footer{display:flex;justify-content:space-between;gap:1rem;padding:1.4rem clamp(
 @media(max-width:760px){
   nav a.l:nth-of-type(n+3){display:none}
   .hint{display:none}
-  .hero{padding:6rem clamp(1.2rem,5vw,4rem) clamp(1.5rem,5vh,3.5rem);align-items:flex-end}
-  .card{width:min(100%,380px);padding:1.55rem 1.65rem}
-  .card h1{font-size:clamp(2.2rem,5vw,3.35rem);margin:.75rem 0 .7rem}
-  .card p{font-size:1.1rem;line-height:1.7}
-  .row{flex-direction:row;align-items:center;margin-top:1.5rem;gap:.7rem}
-  .btn{text-align:center;padding:.65rem 1.3rem;font-size:.85rem}
-  .three{grid-template-columns:1fr;padding:4rem 1.2rem}
+  .hero{min-height:78svh;padding:4.5rem .75rem 1.1rem;align-items:flex-end}
+  .card{width:min(100%,270px);padding:1rem .9rem}
+  .card h1{font-size:clamp(1.9rem,8vw,2.35rem);margin:.5rem 0 .55rem}
+  .card p{font-size:.88rem;line-height:1.45}
+  .row{flex-direction:row;align-items:center;margin-top:.9rem;gap:.45rem}
+  .btn{text-align:center;padding:.48rem .55rem;font-size:.68rem}
+  .three{grid-template-columns:repeat(3,minmax(0,1fr));gap:.45rem;padding:2.5rem .75rem 4rem}
+  .three .glass{min-height:0;padding:.9rem .65rem;border-radius:16px}
+  .three h2{font-size:.68rem;line-height:1.2;letter-spacing:0;margin-bottom:.45rem;overflow-wrap:anywhere}
+  .three p{font-size:.72rem;line-height:1.4;overflow-wrap:anywhere}
   footer{flex-direction:column}
 }
 @media(prefers-reduced-motion:reduce){.blob{animation:none}html{scroll-behavior:auto}}

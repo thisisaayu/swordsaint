@@ -83,8 +83,7 @@ function draw(dt){
   const a=yaw+(px-.5)*.5,p=.2+(py-.5)*.3;
   cyaw=Math.cos(a);syaw=Math.sin(a);cp=Math.cos(p);sp=Math.sin(p);
   zb.fill(1e9);
-  const pointStep=W<640?10:5;
-  for(let i=0;i<P.length;i+=pointStep)put(P[i],P[i+1],P[i+2],P[i+3],P[i+4]);
+  for(let i=0;i<P.length;i+=5)put(P[i],P[i+1],P[i+2],P[i+3],P[i+4]);
   swords.forEach(s=>{
     s.a+=dt*s.v*boost;
     const sg=Math.sign(s.v),T=s.tilt,cT=Math.cos(T),sT=Math.sin(T);
