@@ -57,11 +57,11 @@ footer{display:flex;justify-content:space-between;gap:1rem;padding:1.4rem clamp(
   nav a.l:nth-of-type(n+3){display:none}
   .hint{display:none}
   .hero{padding:6rem 1rem 2.2rem;align-items:flex-end}
-  .card{width:min(100%,310px);padding:1.2rem 1.1rem}
-  .card h1{font-size:clamp(2rem,10vw,2.65rem)}
-  .card p{font-size:.98rem;line-height:1.55}
-  .row{flex-direction:column;align-items:stretch;margin-top:1.15rem}
-  .btn{text-align:center;padding:.58rem 1rem}
+  .card{width:min(100%,280px);padding:1rem .95rem}
+  .card h1{font-size:clamp(1.9rem,9vw,2.35rem);margin:.55rem 0 .55rem}
+  .card p{font-size:.9rem;line-height:1.45}
+  .row{flex-direction:column;align-items:stretch;margin-top:.9rem;gap:.5rem}
+  .btn{text-align:center;padding:.48rem .8rem;font-size:.76rem}
   .three{grid-template-columns:1fr;padding:4rem 1.2rem}
   footer{flex-direction:column}
 }

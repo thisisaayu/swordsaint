@@ -65,7 +65,7 @@ function resize(){
 let cyaw=1,syaw=0,cp=1,sp=0;
 function put(x,y,z,t,rnd,bo){
   const xr=x*cyaw-z*syaw,zr=x*syaw+z*cyaw,yc=y-17,y2=yc*cp-zr*sp,z2=yc*sp+zr*cp;
-  const f=D/(D+z2),gx=((W/2+xr*f*S)/cw)|0,gy=((H*.52-y2*f*S)/chh)|0;
+  const f=D/(D+z2),gx=((W/2+xr*f*S)/cw)|0,gy=((H*(W<640?.34:.52)-y2*f*S)/chh)|0;
   if(gx<0||gy<0||gx>=cols||gy>=rows)return;
   const i=gy*cols+gx;if(z2>=zb[i])return;zb[i]=z2;
   let b=bo!==undefined?bo:(1-(z2+38)/76*.62)*(.55+.45*rnd);
